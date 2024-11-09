@@ -9,6 +9,7 @@ portfolioApp.use(cors()); // Access-Control-Allow-Origin: *
 portfolioApp.options("*", cors()); // options -> http method like get, patch, delete
 
 portfolioApp.use("/", baseRouter);
+portfolioApp.use("/v1/xp-base", baseRouter);
 
 portfolioApp.all("*", (req, res, next) => {
   next(new Error(`Can't find ${req.originalUrl} on server`, 404));

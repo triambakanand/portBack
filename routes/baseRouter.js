@@ -1,9 +1,14 @@
 const express = require("express");
-const { baseAPI } = require("../controller/baseController");
+const {
+  basePageContext,
+  getSummary,
+} = require("../controllers/baseController");
 
 // Merge Param Implementation
 const router = express.Router();
 
-router.route("/").get(baseAPI);
+router.route("/").get(basePageContext);
+
+router.route("/get-base-details/:typeX").get(getSummary);
 
 module.exports = router;
